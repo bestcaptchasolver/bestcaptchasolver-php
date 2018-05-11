@@ -1,0 +1,38 @@
+{
+    "name": "bestcaptchasolver/bestcaptchasolver",
+    "type": "library",
+    "description": "bestcaptchasolver is a super easy to use bypass captcha php API wrapper for bestcaptchasolver.com captcha service",
+    "keywords": [
+        "captcha",
+        "bypasscaptcha",
+        "decaptcher",
+        "decaptcha",
+        "2captcha",
+        "deathbycaptcha",
+        "anticaptcha",
+        "bypass recaptcha v2",
+        "bypass no captcha recaptcha",
+        "bypass invisible recaptcha",
+        "captcha services for recaptcha v2",
+        "recaptcha v2 captcha solver",
+        "google recaptcha solver",
+        "recaptcha solver python",
+        "recaptcha bypass script",
+        "bestcaptchasolver"
+    ],
+    "homepage": "https://github.com/bestcaptchasolver/bestcaptchasolver-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BestCaptchaSolver",
+            "email": "bcsolver@gmail.com",
+            "homepage": "https://bestcaptchasolver.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "ext-curl": "*"
+    }
+}
+
