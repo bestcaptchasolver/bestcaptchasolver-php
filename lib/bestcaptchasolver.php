@@ -23,7 +23,7 @@ class Utils {
         $results = curl_exec($ch);
         curl_close($ch);
         $js = json_decode($results, true);
-        if(isset($js['status'])) if($js['status'] === 'error') throw new Exception($js['message']);
+        if(isset($js['status'])) if($js['status'] === 'error') throw new Exception($js['error']);
         return $js;
     }
 
@@ -41,7 +41,7 @@ class Utils {
         $results = curl_exec($ch);
         curl_close($ch);
         $js = json_decode($results, true);
-        if(isset($js['status'])) if($js['status'] === 'error') throw new Exception($js['message']);
+        if(isset($js['status'])) if($js['status'] === 'error') throw new Exception($js['error']);
         return $js;
     }
 
