@@ -16,26 +16,27 @@ function test_api() {
     echo "Balance: $balance";
 
     // works
-    echo 'Solving captcha ...';
+    echo ' Solving captcha ...';
     $id = $bcs->submit_image_captcha('captcha.jpg');
     $image_text = NULL;
     while($image_text === NULL) {
-        $image_text = $bcs->retrieve($id);  // get the image text (if completed)
+        $image_text = $bcs->retrieve($id)['text'];  // get the image text (if completed)
         sleep(2);                  // retry every 2 seconds
     }
-    echo "Captcha text: $image_text";
+    echo " Captcha text: $image_text";
     // solve recaptcha
-    echo 'Submitting recaptcha...';
+    echo ' Submitting recaptcha...';
     $id = $bcs->submit_recaptcha($PAGE_URL, $SITE_KEY);
     // get response now that we have the ID
     $gresponse = NULL;
     while($gresponse === NULL) {
-        $gresponse = $bcs->retrieve($id);  // get the image text (if completed)
+        $gresponse = $bcs->retrieve($id)['gresponse'];  // get the image text (if completed)
         sleep(5);                  // retry every 5 seconds
     }
 
     // completed at this point
-    echo "Recaptcha response: $gresponse";
+    echo " Recaptcha response: $gresponse";
+    // $proxy_status = $bcs->retrieve($id)['proxy_status'];
 
     // $bcs->submit_image_captcha('captcha.jpg', true);     // case sensitive completion of image captcha
     // $bcs->submit_recaptcha($PAGE_URL, $SITE_KEY, '126.34.43.3:123'); // use proxy, works with user:pass@ip:port as well

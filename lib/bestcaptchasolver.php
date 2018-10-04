@@ -113,9 +113,11 @@ class BestCaptchaSolver {
     function retrieve($captcha_id) {
         $url = BASE_URL . "/captcha/$captcha_id?access_token=$this->_access_token";
         $response = Utils::GET($url, USER_AGENT, $this->_timeout);
-        if($response['status'] === 'pending') return NULL;      // still pending
-        if(isset($response['gresponse'])) return $response['gresponse'];
-        else if(isset($response['text'])) return $response['text'];
+        if($response['status'] === 'pending') return array(
+            "gresponse" => NULL,
+            "text" => NULL,
+        );;      // still pending
+        return $response;
     }
 
     // Set captcha bad

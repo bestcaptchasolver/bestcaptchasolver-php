@@ -50,7 +50,7 @@ Once you have the captcha ID, you can check for completion of captcha
 ```php
 $image_text = NULL;
 while($image_text === NULL) {
-    $image_text = $bcs->retrieve($id);  // get the image text (if completed)
+    $image_text = $bcs->retrieve($id)['text'];  // get the image text (if completed)
     sleep(2);                           // retry every 2 seconds
 }
 ```
@@ -73,11 +73,17 @@ completion using the same retrieve method. The response (when ready) will be a g
 
 ```php
 $gresponse = NULL;
-while($image_text === NULL) {
-    $gresponse = $bcs->retrieve($id);  // get the image text (if completed)
+while($gresponse === NULL) {
+    $gresponse = $bcs->retrieve($id)['gresponse'];  // get the image text (if completed)
     sleep(2);                           // retry every 2 seconds
 }
 ```
+
+**If submitted with proxy, get proxy status**
+```
+$proxy_status = $bcs->retrieve($id)['proxy_status']
+```
+
 **Set captcha bad**
 
 When a captcha was solved wrong by our workers, you can notify the server with it's ID,
