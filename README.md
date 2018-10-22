@@ -37,12 +37,17 @@ $balance = $bcs->account_balance();
 
 **Submit image captcha**
 
-You can give it a b64 encoded string or a file path
+You can give it a b64 encoded string or a file path as `image` parameter
 
 ``` php
-$id = $bcs->submit_image_captcha('captcha.jpg');
+$p = array();
+$p['image'] = 'captcha.jpg';
+$id = $bcs->submit_image_captcha($p);
 ```
-Optionally, you can give it a 2nd argument (boolean), for case sensitivity
+
+Optional parameters:
+- case_sensitive - TRUE or FALSE, default: FALSE
+- affiliate_id - ID of affiliate, can be gathered from /account page
 
 **Retrieve image text**
 
@@ -57,14 +62,25 @@ while($image_text === NULL) {
 
 **Submit recaptcha details**
 
-For recaptcha submission there are two things that are required.
+For recaptcha submission there are two parameters that are required an others that are optional
 - page_url
 - site_key
+- type (optional)
+- v3_action (optional)
+- v3_min_score (optional)
+- user_agent (optional)
+- affiliate_id (optional)
+- proxy (optional)
+
+Check the [/api](https://bestcaptchasolver.com/api) page for more about this parameters
+
 ``` php
-$id = $bcs->submit_recaptcha($PAGE_URL, $SITE_KEY);
+$p = array();
+$p['page_url'] = $PAGE_URL;
+$p['site_key'] = $SITE_KEY;
+$id = $bcs->submit_recaptcha($p);
 ```
-Optionally, you can give it a 3rd argument (string) for proxy, in the following format:
-`12.34.56.78:1234` or `user:password@12.34.56.78:1234` if authentication is required
+
 
 **Retrieve recaptcha gresponse**
 
