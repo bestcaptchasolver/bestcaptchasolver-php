@@ -98,15 +98,19 @@ class BestCaptchaSolver
 
         $data['b64image'] = $captcha_file;
         // case sensitive
-        if (array_key_exists('case_sensitive', $opts)) if ($opts['case_sensitive'] === TRUE) $data['case_sensitive'] = '1';
-        // affiliate ID
+        if (array_key_exists('is_case', $opts)) $data['is_case'] = $opts['is_case'];
+        if (array_key_exists('is_phrase', $opts)) $data['is_phrase'] = $opts['is_phrase'];
+        if (array_key_exists('is_math', $opts)) $data['is_math'] = $opts['is_math'];
+        if (array_key_exists('alphanumeric', $opts)) $data['alphanumeric'] = $opts['alphanumeric'];
+        if (array_key_exists('minlength', $opts)) $data['minlength'] = $opts['minlength'];
+        if (array_key_exists('maxlength', $opts)) $data['maxlength'] = $opts['maxlength'];
         if (array_key_exists('affiliate_id', $opts)) $data['affiliate_id'] = $opts['affiliate_id'];
         $url = BASE_URL . "/captcha/image";
         $response = Utils::POST($url, $data, USER_AGENT, $this->_timeout);
         return $response['id'];
     }
 
-    // Submit recaptcha
+    // Submit reCAPTCHA
     function submit_recaptcha($opts)
     {
         $data = array(
@@ -129,6 +133,24 @@ class BestCaptchaSolver
         return $response['id'];
     }
 
+    // Submit GeeTest
+    function submit_geetest($opts)
+    {
+        $opts['access_token'] = $this->_access_token;
+        $url = BASE_URL . "/captcha/geetest";
+        $response = Utils::POST($url, $opts, USER_AGENT, $this->_timeout);
+        return $response['id'];
+    }
+
+    // Submit Capy
+    function submit_capy($opts)
+    {
+        $opts['access_token'] = $this->_access_token;
+        $url = BASE_URL . "/captcha/capy";
+        $response = Utils::POST($url, $opts, USER_AGENT, $this->_timeout);
+        return $response['id'];
+    }
+
     // Get recaptcha response using captcha ID
     function retrieve($captcha_id)
     {
@@ -137,6 +159,7 @@ class BestCaptchaSolver
         if ($response['status'] === 'pending') return array(
             "gresponse" => NULL,
             "text" => NULL,
+            "solution" => NULL
         );;      // still pending
         return $response;
     }

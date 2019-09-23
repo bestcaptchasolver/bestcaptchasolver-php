@@ -2,33 +2,19 @@
 
 <?php
 
-require('lib/bestcaptchasolver.php');      // load API library
-// Test method
+require('../lib/bestcaptchasolver.php');      // load API library
 
+# for more details check https://bestcaptchasolver.com/captchabypass-api
 function test_api() {
-    $ACCESS_TOKEN = 'your_access_token';
-    $PAGE_URL = 'page_url_here';
-    $SITE_KEY = 'site_key_here';
+    $ACCESS_TOKEN = 'ACCESS_TOKEN_HERE';
+    $PAGE_URL = 'PAGE_URL_HERE';
+    $SITE_KEY = 'SITE_KEY_HERE';
 
     $bcs = new BestCaptchaSolver($ACCESS_TOKEN);      // get token from https://bestcaptchasolver.com/account
     // check account balance
     $balance = $bcs->account_balance();       // get balance
     echo "Balance: $balance";
 
-    // works
-    echo ' Solving captcha ...';
-    $p = array();
-    $p['image'] = 'captcha.jpg';
-    //$p['case_sensitive'] = FALSE;        // TRUE or FALSE
-    //$p['affiliate_id'] = 'affiliate_id';  // get it from /account
-    $id = $bcs->submit_image_captcha($p);
-    $image_text = NULL;
-    while($image_text === NULL) {
-        $image_text = $bcs->retrieve($id)['text'];  // get the image text (if completed)
-        sleep(2);                  // retry every 2 seconds
-    }
-    echo " Captcha text: $image_text";
-    // solve recaptcha
     echo ' Submitting recaptcha...';
     $p = array();
     $p['page_url'] = $PAGE_URL;
@@ -52,7 +38,7 @@ function test_api() {
     // completed at this point
     echo " Recaptcha response: $gresponse";
     // $proxy_status = $bcs->retrieve($id)['proxy_status'];
-    // $bcs->set_captcha_bad(50);       // set bad captcha for specific id
+    // $bcs->set_captcha_bad($id);       // set bad captcha for specific id
 }
 
 // Main method

@@ -41,13 +41,17 @@ You can give it a b64 encoded string or a file path as `image` parameter
 
 ``` php
 $p = array();
-$p['image'] = 'captcha.jpg';
+$p['image'] = '../captcha.jpg';
+// $p['is_case'] = FALSE;         // is case sensitive, default: False
+// $p['is_phrase'] = FALSE;       // has at least one space, default: FALSE, optional
+// $p['is_math'] = FALSE;         // math captcha calculation, default: FALSE, optional
+// $p['alphanumeric'] = 1;        // 1 - digits only, 2 - letters only, default: all, optional
+// $p['minlength'] = 2;           // minimum text length, default: any, optional
+// $p['maxlength'] = 3;           // maximum text length, default: any, optional
+// $p['affiliate_id'] = 'affiliate_id';  // get it from /account, optional
+
 $id = $bcs->submit_image_captcha($p);
 ```
-
-Optional parameters:
-- case_sensitive - TRUE or FALSE, default: FALSE
-- affiliate_id - ID of affiliate, can be gathered from /account page
 
 **Retrieve image text**
 
@@ -81,7 +85,6 @@ $p['site_key'] = $SITE_KEY;
 $id = $bcs->submit_recaptcha($p);
 ```
 
-
 **Retrieve recaptcha gresponse**
 
 Just as the image captcha, once you have the ID, you can start checking for it's
@@ -98,6 +101,36 @@ while($gresponse === NULL) {
 **If submitted with proxy, get proxy status**
 ```
 $proxy_status = $bcs->retrieve($id)['proxy_status']
+```
+
+**Geetest**
+- domain
+- gt
+- challenge
+
+```php
+$p = array();
+$p['domain'] = 'DOMAIN_HERE';
+$p['gt'] = 'GT_HERE';
+$p['challenge'] = 'CHALLENGE_HERE';
+//$p["affiliate_id"] = "affiliate_id";
+
+// get solution
+$solution = $bcs->retrieve($id)['solution'];  // get the image text (if completed)
+```
+
+**Capy**
+- page_url
+- site_key
+
+```php
+$p = array();
+$p['page_url'] = 'PAGE_URL_HERE';
+$p['site_key'] = 'SITE_KEY_HERE';
+//$p["affiliate_id"] = "affiliate_id";
+
+// get solution
+$solution = $bcs->retrieve($id)['solution'];  // get the image text (if completed)
 ```
 
 **Set captcha bad**
