@@ -130,7 +130,21 @@ $p['site_key'] = 'SITE_KEY_HERE';
 //$p["affiliate_id"] = "affiliate_id";
 
 // get solution
-$solution = $bcs->retrieve($id)['solution'];  // get the image text (if completed)
+$solution = $bcs->retrieve($id)['solution'];
+```
+
+**hCaptcha**
+- page_url
+- site_key
+
+```php
+$p = array();
+$p['page_url'] = 'PAGE_URL_HERE';
+$p['site_key'] = 'SITE_KEY_HERE';
+//$p["affiliate_id"] = "affiliate_id";
+
+// get solution
+$solution = $bcs->retrieve($id)['solution'];
 ```
 
 **Set captcha bad**
