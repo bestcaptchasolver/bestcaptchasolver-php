@@ -21,11 +21,12 @@ function test_api() {
     $p['site_key'] = $SITE_KEY;
 
     // optional parameters
-    //$p["type"] = "1";        // 1 - regular, 2 - invisible, 3 - v3, default: 1
-    //$p["v3_action"] = "home";    // action used when solving v3 reCaptcha
-    //$p["v3_min_score"] = "0.3";  // min score to target when solving v3
-    //$p["proxy"] = "user:pass@191.123.43.34";     // proxy with/out authentication
-    //$p["affiliate_id"] = "affiliate_id";         // get it from /account
+    //$p["type"] = "1";        // 1 - regular, 2 - invisible, 3 - v3, optional, default: 1
+    //$p["v3_action"] = "home";    // action used when solving v3 reCaptcha, optional
+    //$p["v3_min_score"] = "0.3";  // min score to target when solving v3, optional
+    //$p["data_s"] = "recaptcha data-s parameter used in loading reCAPTCHA"; // optional
+    //$p["proxy"] = "user:pass@191.123.43.34";     // proxy with/out authentication, optional
+    //$p["affiliate_id"] = "affiliate_id";         // get it from /account, optional
 
     $id = $bcs->submit_recaptcha($p);
     // get response now that we have the ID
