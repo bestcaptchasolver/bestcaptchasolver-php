@@ -128,6 +128,7 @@ class BestCaptchaSolver
         if(array_key_exists('v3_action', $opts)) $data['v3_action'] = $opts['v3_action'];
         if(array_key_exists('v3_min_score', $opts)) $data['v3_min_score'] = $opts['v3_min_score'];
         if(array_key_exists('data_s', $opts)) $data['data_s'] = $opts['data_s'];
+        if(array_key_exists('cookie_input', $opts)) $data['cookie_input'] = $opts['cookie_input'];
         if(array_key_exists('affiliate_id', $opts)) $data['affiliate_id'] = $opts['affiliate_id'];
         $url = BASE_URL . "/captcha/recaptcha";
         $response = Utils::POST($url, $data, USER_AGENT, $this->_timeout);

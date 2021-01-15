@@ -69,10 +69,16 @@ while($image_text === NULL) {
 For recaptcha submission there are two parameters that are required an others that are optional
 - page_url
 - site_key
-- type (optional)
+- type (optional, defaults to 1 if not given)
+    - `1` - v2
+    - `2` - invisible
+    - `3` - v3
+    - `4` - enterprise v2
+    - `5` - enterprise v3
 - v3_action (optional)
 - v3_min_score (optional)
 - data_s (optional)
+- cookie_input (optional)
 - user_agent (optional)
 - affiliate_id (optional)
 - proxy (optional)
