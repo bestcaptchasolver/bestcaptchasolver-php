@@ -121,7 +121,7 @@ $p['domain'] = 'DOMAIN_HERE';
 $p['gt'] = 'GT_HERE';
 $p['challenge'] = 'CHALLENGE_HERE';
 //$p["affiliate_id"] = "affiliate_id";
-
+$id = $bcs->submit_geetest($p);
 // get solution
 $solution = $bcs->retrieve($id)['solution'];  // get the image text (if completed)
 ```
@@ -135,7 +135,7 @@ $p = array();
 $p['page_url'] = 'PAGE_URL_HERE';
 $p['site_key'] = 'SITE_KEY_HERE';
 //$p["affiliate_id"] = "affiliate_id";
-
+$id = $bcs->submit_capy($p);
 // get solution
 $solution = $bcs->retrieve($id)['solution'];
 ```
@@ -149,8 +149,24 @@ $p = array();
 $p['page_url'] = 'PAGE_URL_HERE';
 $p['site_key'] = 'SITE_KEY_HERE';
 //$p["affiliate_id"] = "affiliate_id";
-
+$id = $bcs->submit_hcaptcha($p);
 // get solution
+$solution = $bcs->retrieve($id)['solution'];
+```
+
+**FunCaptcha (Arkose Labs)**
+- page_url
+- s_url
+- site_key
+
+```php
+$p = array();
+$p['page_url'] = 'https://abc.com';
+$p['s_url'] = 'https://api.arkoselabs.com';
+$p['site_key'] = '11111111-1111-1111-1111-111111111111';
+//$p['data'] = '{"x":"y"}';                    // optional
+//$p["affiliate_id"] = "affiliate_id";         // get it from /account
+$id = $bcs->submit_funcaptcha($p);
 $solution = $bcs->retrieve($id)['solution'];
 ```
 
