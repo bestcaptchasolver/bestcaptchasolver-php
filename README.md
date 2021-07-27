@@ -114,12 +114,14 @@ $proxy_status = $bcs->retrieve($id)['proxy_status']
 - domain
 - gt
 - challenge
+- api_server (optional)
 
 ```php
 $p = array();
 $p['domain'] = 'DOMAIN_HERE';
 $p['gt'] = 'GT_HERE';
 $p['challenge'] = 'CHALLENGE_HERE';
+//$p['api_server'] = 'GT_DOMAIN_HERE';  // optional
 //$p["affiliate_id"] = "affiliate_id";
 $id = $bcs->submit_geetest($p);
 // get solution
