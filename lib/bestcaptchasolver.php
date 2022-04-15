@@ -144,6 +144,15 @@ class BestCaptchaSolver
         return $response['id'];
     }
 
+    // Submit GeeTestV4
+    function submit_geetest_v4($opts)
+    {
+        $opts['access_token'] = $this->_access_token;
+        $url = BASE_URL . "/captcha/geetestv4";
+        $response = Utils::POST($url, $opts, USER_AGENT, $this->_timeout);
+        return $response['id'];
+    }
+
     // Submit Capy
     function submit_capy($opts)
     {

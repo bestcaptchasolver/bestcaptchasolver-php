@@ -128,6 +128,23 @@ $id = $bcs->submit_geetest($p);
 $solution = $bcs->retrieve($id)['solution'];  // get the image text (if completed)
 ```
 
+
+**GeetestV4**
+- domain
+- captchaid
+
+**Important:** This is not the captchaid that's in our system that you receive while submitting a captcha. Gather this from HTML source of page with geetestv4 captcha, inside the `<script>` tag you'll find a link that looks like this: https://i.imgur.com/XcZd47y.png
+
+```php
+$p = array();
+$p['domain'] = 'https://example.com';
+$p['captchaid'] = '647f5ed2ed8acb4be36784e01556bb71';
+//$p["affiliate_id"] = "affiliate_id";
+$id = $bcs->submit_geetest_v4($p);
+// get solution
+$solution = $bcs->retrieve($id)['solution'];  // get the image text (if completed)
+```
+
 **Capy**
 - page_url
 - site_key
