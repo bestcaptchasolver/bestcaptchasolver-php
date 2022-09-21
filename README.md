@@ -200,6 +200,27 @@ $id = $bcs->submit_funcaptcha($p);
 $solution = $bcs->retrieve($id)['solution'];
 ```
 
+**Task**
+- template_name
+- page_url
+- variables
+- user_agent (optional)
+- proxy (optional)
+- affiliate_id (optional)
+
+```php
+$p = array();
+$p['page_url'] = 'https://bestcaptchasolver.com/automation/login';
+$p['template_name'] = 'Login test page';
+$p['variables'] = array(
+  "username" => "roger", "password" => "mypass"
+);
+// $p["affiliate_id"] = "affiliate_id";         // get it from /account
+// $p['user_agent'] = 'user agent here';
+// $p['proxy'] = '123.234.241.123:1234';
+$id = $bcs->submit_task($p);
+```
+
 **Set captcha bad**
 
 When a captcha was solved wrong by our workers, you can notify the server with it's ID,

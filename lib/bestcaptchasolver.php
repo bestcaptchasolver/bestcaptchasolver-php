@@ -180,6 +180,15 @@ class BestCaptchaSolver
         return $response['id'];
     }
 
+    // Submit task
+    function submit_task($opts)
+    {
+        $opts['access_token'] = $this->_access_token;
+        $url = BASE_URL . "/captcha/task";
+        $response = Utils::POST($url, $opts, USER_AGENT, $this->_timeout);
+        return $response['id'];
+    }
+
     // Get recaptcha response using captcha ID
     function retrieve($captcha_id)
     {
