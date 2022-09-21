@@ -162,12 +162,23 @@ $solution = $bcs->retrieve($id)['solution'];
 **hCaptcha**
 - page_url
 - site_key
+- invisible (optional)
+- payload (optional)
+- user_agent (optional)
+- proxy (optional)
 
 ```php
 $p = array();
 $p['page_url'] = 'PAGE_URL_HERE';
 $p['site_key'] = 'SITE_KEY_HERE';
-//$p["affiliate_id"] = "affiliate_id";
+// $p['invisible'] = true;
+// $p['payload'] = array(
+//     "rqdata" => "taken from web requests"
+// );
+// $p["affiliate_id"] = "affiliate_id";         // get it from /account
+// $p['user_agent'] = 'user agent here';
+// $p['proxy'] = '123.234.241.123:1234';
+
 $id = $bcs->submit_hcaptcha($p);
 // get solution
 $solution = $bcs->retrieve($id)['solution'];
