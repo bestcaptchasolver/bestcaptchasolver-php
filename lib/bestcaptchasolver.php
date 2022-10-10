@@ -189,6 +189,17 @@ class BestCaptchaSolver
         return $response['id'];
     }
 
+    // Push task variables
+    function task_push_variables($id, $push_variables)
+    {
+        $url = BASE_URL . "/captcha/task/pushVariables/" . $id;
+        $response = Utils::POST($url, array(
+            "pushVariables" => $push_variables,
+            "access_token" => $this->_access_token
+        ), USER_AGENT, $this->_timeout);
+        return $response['status'];
+    }
+
     // Get recaptcha response using captcha ID
     function retrieve($captcha_id)
     {

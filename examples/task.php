@@ -25,6 +25,13 @@ function test_api() {
     // $p['proxy'] = '123.234.241.123:1234';
 
     $id = $bcs->submit_task($p);
+
+    // submit pushVariables while task is being solved by the worker
+    // very helpful, for e.g. in cases of 2FA authentication
+    // $bcs->task_push_variables($id, array(
+    //             "tfa_code" => "1693"
+    // ));
+
     // get response now that we have the ID
     $solution = NULL;
     while($solution === NULL) {
