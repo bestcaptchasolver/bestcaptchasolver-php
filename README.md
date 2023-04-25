@@ -77,6 +77,7 @@ For recaptcha submission there are two parameters that are required an others th
     - `5` - enterprise v3
 - v3_action (optional)
 - v3_min_score (optional)
+- domain (optional)
 - data_s (optional)
 - cookie_input (optional)
 - user_agent (optional)
@@ -164,6 +165,7 @@ $solution = $bcs->retrieve($id)['solution'];
 - site_key
 - invisible (optional)
 - payload (optional)
+- domain (optional)
 - user_agent (optional)
 - proxy (optional)
 
@@ -175,6 +177,7 @@ $p['site_key'] = 'SITE_KEY_HERE';
 // $p['payload'] = array(
 //     "rqdata" => "taken from web requests"
 // );
+// $p['domain'] = 'hcaptcha.com';
 // $p["affiliate_id"] = "affiliate_id";         // get it from /account
 // $p['user_agent'] = 'user agent here';
 // $p['proxy'] = '123.234.241.123:1234';

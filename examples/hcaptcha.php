@@ -21,6 +21,7 @@ function test_api() {
     // $p['payload'] = array(
     //     "rqdata" => "taken from web requests"
     // );
+    // $p['domain'] = 'hcaptcha.com';
     // $p["affiliate_id"] = "affiliate_id";         // get it from /account
     // $p['user_agent'] = 'user agent here';
     // $p['proxy'] = '123.234.241.123:1234';

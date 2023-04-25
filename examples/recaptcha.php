@@ -34,6 +34,7 @@ function test_api() {
     //
     //$p["v3_action"] = "home";    // action used when solving v3 reCaptcha, optional
     //$p["v3_min_score"] = "0.3";  // min score to target when solving v3, optional
+    //$p['domain'] = "www.google.com";      // used in loading reCAPTCHA, in some cases it works better with - recaptcha.net
     //$p["data_s"] = "recaptcha data-s parameter used in loading reCAPTCHA"; // optional
     //$p["cookie_input"] = "a=b;c=d";              // used in solving of reCAPTCHA, optional
     //$p["proxy"] = "user:pass@191.123.43.34:3001";     // proxy with/out authentication, optional
