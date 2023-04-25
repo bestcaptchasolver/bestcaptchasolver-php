@@ -39,7 +39,7 @@ function main() {
     try {
         test_api();             // test API
     } catch (Exception $ex) {
-        echo "Error occured: " . $ex->getMessage();     // print error
+        echo "Error occurred: " . $ex->getMessage();     // print error
     }
 }
 
