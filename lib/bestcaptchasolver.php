@@ -181,6 +181,15 @@ class BestCaptchaSolver
         return $response['id'];
     }
 
+    // Submit turnstile
+    function submit_turnstile($opts)
+    {
+        $opts['access_token'] = $this->_access_token;
+        $url = BASE_URL . "/captcha/turnstile";
+        $response = Utils::POST($url, $opts, USER_AGENT, $this->_timeout);
+        return $response['id'];
+    }
+
     // Submit task
     function submit_task($opts)
     {

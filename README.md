@@ -216,6 +216,29 @@ $id = $bcs->submit_funcaptcha($p);
 $solution = $bcs->retrieve($id)['solution'];
 ```
 
+**Turnstile (Cloudflare)**
+- page_url
+- site_key
+- action (optional)
+- cdata (optional)
+- domain (optional)
+- user_agent (optional)
+- proxy (optional)
+
+```php
+$p = array();
+$p['page_url'] = 'PAGE_URL_HERE';
+$p['site_key'] = 'SITE_KEY_HERE';
+// $p['action'] = 'taken from page source, optional';
+// $p['cdata'] = 'taken from page source, optional';
+// $p['domain'] = 'challenges.cloudflare.com';  // optional
+// $p['user_agent'] = 'user agent here';        // optional
+// $p['proxy'] = '123.234.241.123:1234';        // optional
+// $p["affiliate_id"] = "affiliate_id";         // get it from /account
+$id = $bcs->submit_turnstile($p);
+$solution = $bcs->retrieve($id)['solution'];
+```
+
 **Task**
 - template_name
 - page_url
