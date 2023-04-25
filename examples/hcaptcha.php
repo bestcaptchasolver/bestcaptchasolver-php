@@ -17,14 +17,14 @@ function test_api() {
     $p = array();
     $p['page_url'] = 'PAGE_URL_HERE';
     $p['site_key'] = 'SITE_KEY_HERE';
-    // $p['invisible'] = true;
+    // $p['invisible'] = true;                      // optional
     // $p['payload'] = array(
     //     "rqdata" => "taken from web requests"
     // );
-    // $p['domain'] = 'hcaptcha.com';
+    // $p['domain'] = 'hcaptcha.com';               // optional
+    // $p['user_agent'] = 'user agent here';        // optional
+    // $p['proxy'] = '123.234.241.123:1234';        // optional
     // $p["affiliate_id"] = "affiliate_id";         // get it from /account
-    // $p['user_agent'] = 'user agent here';
-    // $p['proxy'] = '123.234.241.123:1234';
 
     $id = $bcs->submit_hcaptcha($p);
     // get response now that we have the ID

@@ -81,8 +81,8 @@ For recaptcha submission there are two parameters that are required an others th
 - data_s (optional)
 - cookie_input (optional)
 - user_agent (optional)
-- affiliate_id (optional)
 - proxy (optional)
+- affiliate_id (optional)
 
 Check the [/api](https://bestcaptchasolver.com/api) page for more about this parameters
 
@@ -116,16 +116,19 @@ $proxy_status = $bcs->retrieve($id)['proxy_status']
 - gt
 - challenge
 - api_server (optional)
+- user_agent (optional)
+- proxy (optional)
 
 ```php
 $p = array();
 $p['domain'] = 'DOMAIN_HERE';
 $p['gt'] = 'GT_HERE';
 $p['challenge'] = 'CHALLENGE_HERE';
-//$p['api_server'] = 'GT_DOMAIN_HERE';  // optional
-//$p["affiliate_id"] = "affiliate_id";
+//$p['api_server'] = 'GT_DOMAIN_HERE';         // optional
+//$p['user_agent'] = 'user agent here';        // optional
+//$p['proxy'] = 'user:pass@123.45.67.89:3031'; // optional
+//$p["affiliate_id"] = "affiliate_id";         // optional
 $id = $bcs->submit_geetest($p);
-// get solution
 $solution = $bcs->retrieve($id)['solution'];  // get the image text (if completed)
 ```
 
@@ -133,6 +136,8 @@ $solution = $bcs->retrieve($id)['solution'];  // get the image text (if complete
 **GeetestV4**
 - domain
 - captchaid
+- user_agent (optional)
+- proxy (optional)
 
 **Important:** This is not the captchaid that's in our system that you receive while submitting a captcha. Gather this from HTML source of page with geetestv4 captcha, inside the `<script>` tag you'll find a link that looks like this: https://i.imgur.com/XcZd47y.png
 
@@ -140,23 +145,27 @@ $solution = $bcs->retrieve($id)['solution'];  // get the image text (if complete
 $p = array();
 $p['domain'] = 'https://example.com';
 $p['captchaid'] = '647f5ed2ed8acb4be36784e01556bb71';
-//$p["affiliate_id"] = "affiliate_id";
+//$p['user_agent'] = 'user agent here';        // optional
+//$p['proxy'] = 'user:pass@123.45.67.89:3031'; // optional
+//$p["affiliate_id"] = "affiliate_id";         // optional
 $id = $bcs->submit_geetest_v4($p);
-// get solution
 $solution = $bcs->retrieve($id)['solution'];  // get the image text (if completed)
 ```
 
 **Capy**
 - page_url
 - site_key
+- user_agent (optional)
+- proxy (optional)
 
 ```php
 $p = array();
 $p['page_url'] = 'PAGE_URL_HERE';
 $p['site_key'] = 'SITE_KEY_HERE';
-//$p["affiliate_id"] = "affiliate_id";
+//$p['user_agent'] = 'user agent here';        // optional
+//$p['proxy'] = 'user:pass@123.45.67.89:3031'; // optional
+//$p["affiliate_id"] = "affiliate_id";         // optional
 $id = $bcs->submit_capy($p);
-// get solution
 $solution = $bcs->retrieve($id)['solution'];
 ```
 
@@ -177,13 +186,12 @@ $p['site_key'] = 'SITE_KEY_HERE';
 // $p['payload'] = array(
 //     "rqdata" => "taken from web requests"
 // );
-// $p['domain'] = 'hcaptcha.com';
+// $p['domain'] = 'hcaptcha.com';               // optional
+// $p['user_agent'] = 'user agent here';        // optional
+// $p['proxy'] = '123.234.241.123:1234';        // optional
 // $p["affiliate_id"] = "affiliate_id";         // get it from /account
-// $p['user_agent'] = 'user agent here';
-// $p['proxy'] = '123.234.241.123:1234';
 
 $id = $bcs->submit_hcaptcha($p);
-// get solution
 $solution = $bcs->retrieve($id)['solution'];
 ```
 
@@ -191,6 +199,9 @@ $solution = $bcs->retrieve($id)['solution'];
 - page_url
 - s_url
 - site_key
+- data (optional)
+- user_agent (optional)
+- proxy (optional)
 
 ```php
 $p = array();
@@ -198,6 +209,8 @@ $p['page_url'] = 'https://abc.com';
 $p['s_url'] = 'https://api.arkoselabs.com';
 $p['site_key'] = '11111111-1111-1111-1111-111111111111';
 //$p['data'] = '{"x":"y"}';                    // optional
+//$p['user_agent'] = 'user agent here';        // optional
+//$p['proxy'] = 'user:pass@123.45.67.89:3031'; // optional
 //$p["affiliate_id"] = "affiliate_id";         // get it from /account
 $id = $bcs->submit_funcaptcha($p);
 $solution = $bcs->retrieve($id)['solution'];
@@ -218,9 +231,9 @@ $p['template_name'] = 'Login test page';
 $p['variables'] = array(
   "username" => "roger", "password" => "mypass"
 );
+// $p['user_agent'] = 'user agent here';        // optional
+// $p['proxy'] = '123.234.241.123:1234';        // optional
 // $p["affiliate_id"] = "affiliate_id";         // get it from /account
-// $p['user_agent'] = 'user agent here';
-// $p['proxy'] = '123.234.241.123:1234';
 $id = $bcs->submit_task($p);
 ```
 

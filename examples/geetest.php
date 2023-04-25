@@ -19,6 +19,8 @@ function test_api() {
     $p['gt'] = 'GT_HERE';
     $p['challenge'] = 'CHALLENGE_HERE';
     //$p['api_server'] = 'GT_DOMAIN_HERE';  // optional
+    //$p['user_agent'] = 'user agent here';        // optional
+    //$p['proxy'] = 'user:pass@123.45.67.89:3031'; // optional
     //$p["affiliate_id"] = "affiliate_id";         // get it from /account
 
     $id = $bcs->submit_geetest($p);

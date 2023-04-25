@@ -17,6 +17,8 @@ function test_api() {
     $p = array();
     $p['domain'] = 'https://example.com';
     $p['captchaid'] = '647f5ed2ed8acb4be36784e01556bb71';
+    //$p['user_agent'] = 'user agent here';        // optional
+    //$p['proxy'] = 'user:pass@123.45.67.89:3031'; // optional
     //$p["affiliate_id"] = "affiliate_id";         // get it from /account
 
     $id = $bcs->submit_geetest_v4($p);

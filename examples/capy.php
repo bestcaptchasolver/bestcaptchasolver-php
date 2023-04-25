@@ -17,6 +17,8 @@ function test_api() {
     $p = array();
     $p['page_url'] = 'PAGE_URL_HERE';
     $p['site_key'] = 'SITE_KEY_HERE';
+    //$p['user_agent'] = 'user agent here';        // optional
+    //$p['proxy'] = 'user:pass@123.45.67.89:3031'; // optional
     //$p["affiliate_id"] = "affiliate_id";         // get it from /account
 
     $id = $bcs->submit_capy($p);

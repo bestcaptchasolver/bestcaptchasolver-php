@@ -19,6 +19,8 @@ function test_api() {
     $p['s_url'] = 'https://api.arkoselabs.com';
     $p['site_key'] = '11111111-1111-1111-1111-111111111111';
     //$p['data'] = '{"x":"y"}';                    // optional
+    //$p['user_agent'] = 'user agent here';        // optional
+    //$p['proxy'] = 'user:pass@123.45.67.89:3031'; // optional
     //$p["affiliate_id"] = "affiliate_id";         // get it from /account
 
     $id = $bcs->submit_funcaptcha($p);

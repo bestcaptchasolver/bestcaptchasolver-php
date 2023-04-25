@@ -37,6 +37,7 @@ function test_api() {
     //$p['domain'] = "www.google.com";      // used in loading reCAPTCHA, in some cases it works better with - recaptcha.net
     //$p["data_s"] = "recaptcha data-s parameter used in loading reCAPTCHA"; // optional
     //$p["cookie_input"] = "a=b;c=d";              // used in solving of reCAPTCHA, optional
+    //$p['user_agent'] = 'user agent here';        // optional
     //$p["proxy"] = "user:pass@191.123.43.34:3001";     // proxy with/out authentication, optional
     //$p["affiliate_id"] = "affiliate_id";         // get it from /account, optional
 
